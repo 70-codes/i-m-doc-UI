@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { axiosWithHeader } from "../api/axios";
 import { Table, Alert } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { Button } from "react-bootstrap";
 
 const PatientsList = () => {
   const [patients, setPatients] = useState([]);

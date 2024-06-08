@@ -9,6 +9,10 @@ const Login = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
+  const reloadApp = () => {
+    window.location.reload();
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -31,6 +35,7 @@ const Login = () => {
       } else if (role === "pharmacist") {
         navigate("/pharmacist");
       }
+      reloadApp();
     } catch (error) {
       setError(error.response ? error.response.data : "An error occurred");
       console.error(

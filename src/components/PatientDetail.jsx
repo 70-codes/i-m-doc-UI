@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Form, Button, Alert, Modal } from "react-bootstrap";
+import { Button, Alert, Modal } from "react-bootstrap";
 import { axiosWithHeader } from "../api/axios";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 import BookAppointment from "./BookAppointment";
 import ChargePatient from "./ChargePatient";
 

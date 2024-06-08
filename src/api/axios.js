@@ -1,16 +1,14 @@
 import axios from "axios";
 
 const normalAxios = axios.create({
-  baseURL: "http://localhost:8000",
+  baseURL: "http://147.182.201.210/",
   headers: {
     "Content-Type": "application/json",
   },
 });
 
-const access = localStorage.getItem("access");
-
 const axiosWithHeader = axios.create({
-  baseURL: "http://localhost:8000",
+  baseURL: "http://147.182.201.210/",
   headers: {
     "Content-Type": "application/json",
   },

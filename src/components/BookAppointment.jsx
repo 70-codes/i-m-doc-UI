@@ -29,6 +29,9 @@ const BookAppointment = ({ patientId }) => {
         `/book-appointment/${patientId}/`,
         appointmentData
       );
+      if (response.status === 200) {
+        setSuccess("Appointment booked successfully");
+      }
       setSuccess("Appointment booked successfully");
       setError(null);
     } catch (error) {

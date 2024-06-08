@@ -9,7 +9,6 @@ import ChargePatient from "./ChargePatient";
 const PatientDetail = () => {
   const { patientId } = useParams();
   const [patient, setPatient] = useState({});
-
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
 
@@ -30,16 +29,18 @@ const PatientDetail = () => {
   const navigate = useNavigate();
 
   const [showModalBook, setShowModalBook] = useState(false);
-
   const handleShowBook = () => setShowModalBook(true);
   const handleCloseBook = () => setShowModalBook(false);
 
   const [showModalCharge, setShowModalCharge] = useState(false);
-
   const handleShowModalCharge = () => setShowModalCharge(true);
   const handleCloseCharge = () => setShowModalCharge(false);
   const handleGoBack = () => {
     navigate(-1);
+  };
+
+  const handleSuccess = () => {
+    setSuccess("");
   };
 
   return (
@@ -48,9 +49,6 @@ const PatientDetail = () => {
       {success && <Alert variant="success">{success}</Alert>}
       <div className="mt-5">
         <h2>Patient Details</h2>
-        <p>
-          <strong>ID:</strong> {patient.id}
-        </p>
         <p>
           <strong>Name:</strong> {patient.name}
         </p>
@@ -72,13 +70,19 @@ const PatientDetail = () => {
         <Button
           variant="outline-success"
           className="py-2"
-          onClick={handleShowModalCharge}
+          onClick={() => {
+            handleShowModalCharge();
+            handleSuccess();
+          }}
         >
           Charge Patient
         </Button>
         <Button
           variant="outline-info"
-          onClick={handleShowBook}
+          onClick={() => {
+            handleShowBook();
+            handleSuccess();
+          }}
           className="py-2"
         >
           Book Appointment

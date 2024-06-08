@@ -38,6 +38,9 @@ const AddUser = () => {
         userData
       );
       setSuccess("User added successfully!");
+      if (response.status === 200) {
+        setSuccess("User added successfully!");
+      }
       setError(null);
       setUserData({
         username: "",

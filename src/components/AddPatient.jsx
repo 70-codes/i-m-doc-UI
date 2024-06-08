@@ -27,6 +27,9 @@ const AddPatient = () => {
       const response = await axiosWithHeader.post("/add_patient/", patientData);
       setSuccess("Patient created successfully");
       setError(null);
+      if (response.status === 200) {
+        setSuccess("Patient created successfully");
+      }
     } catch (error) {
       if (error.response) {
         setError(error.response.data.error);

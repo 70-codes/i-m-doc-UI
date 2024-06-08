@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import AddPatient from "../components/AddPatient";
-import BookAppointment from "../components/BookAppointment";
 import PatientsList from "../components/PatientList";
 
 const Receptionist = () => {
@@ -9,7 +8,6 @@ const Receptionist = () => {
 
   const handleShowAdd = () => setShowModalAdd(true);
   const handleCloseAdd = () => setShowModalAdd(false);
-
 
   return (
     <div className="container mt-5">
@@ -28,7 +26,7 @@ const Receptionist = () => {
           <AddPatient />
         </Modal.Body>
       </Modal>
-      
+
       <h3 className="mt-5 mb-3 text-muted text-opacity-50">
         Registered Patients
       </h3>

@@ -11,8 +11,11 @@ const Footer = () => {
           </Col>
           <Col md={6} className="text-center text-md-end">
             <p>
-              Designed by{" "}
-              <a href="" className="text-light text-decoration-none ">
+              Designed by {/* eslint-disable-next-line */}
+              <a
+                href="#"
+                className="text-light text-decoration-none cursor-pointer"
+              >
                 <span className="text-info fw-bold">The team</span>
               </a>
             </p>

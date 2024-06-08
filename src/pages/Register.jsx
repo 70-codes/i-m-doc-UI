@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { normalAxios } from "../api/axios";
 import { useNavigate } from "react-router-dom";
 
@@ -29,6 +29,9 @@ const Login = () => {
           password: "",
         });
         navigate("/");
+      }
+      if (error) {
+        setError(null);
       }
     } catch (error) {
       setError(error.response ? error.response.data : "An error occurred");

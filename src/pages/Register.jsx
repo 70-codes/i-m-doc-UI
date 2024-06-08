@@ -118,7 +118,7 @@ const Login = () => {
               />
             </div>
             <Button variant="outline-info w-100" type="submit">
-              Login
+              Register
             </Button>
           </form>
         </div>

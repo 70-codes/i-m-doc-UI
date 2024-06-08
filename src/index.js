@@ -1,17 +1,102 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import "bootstrap/dist/css/bootstrap.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import NotFound from "./pages/NotFound";
+import Admin from "./pages/Admin";
+import Receptionist from "./pages/Receptionist";
+import Doctor from "./pages/Doctor";
+import Pharmacist from "./pages/Pharmacist";
+import Reports from "./pages/Reports";
+import PatientDetail from "./components/PatientDetail";
+import AddUser from "./components/AddUser";
+import AddPatient from "./components/AddPatient";
+import BookAppointment from "./components/BookAppointment";
+import PatientDetailsDoc from "./components/PatientDetailsDoc";
+import Layout from "./components/Layout";
+import Logout from "./pages/Logout";
+import ChargePatient from "./components/ChargePatient";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "logout",
+        element: <Logout />,
+      },
+      {
+        path: "register",
+        element: <Register />,
+      },
+      {
+        path: "admin/",
+        element: <Admin />,
+      },
+      {
+        path: "admin/add-user",
+        element: <AddUser />,
+      },
+      {
+        path: "receptionist",
+        element: <Receptionist />,
+      },
+      {
+        path: "receptionist/add-patient",
+        element: <AddPatient />,
+      },
+      {
+        path: "receptionist/chargepatient",
+        element: <ChargePatient />,
+      },
+      {
+        path: "patient-detail/:patientId",
+        element: <PatientDetail />,
+      },
+      {
+        path: "receptionist/book-appointment",
+        element: <BookAppointment />,
+      },
+      {
+        path: "doctor",
+        element: <Doctor />,
+      },
+      {
+        path: "patient-details-doc/:patientId",
+        element: <PatientDetailsDoc />,
+      },
+      {
+        path: "pharmacist",
+        element: <Pharmacist />,
+      },
+      {
+        path: "reports",
+        element: <Reports />,
+      },
+      {
+        path: "patient-detail/:patientId",
+        element: <PatientDetail />,
+      },
+    ],
+  },
+  {
+    path: "*",
+    element: <NotFound />,
+  },
+]);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router}>
+      <Layout />
+    </RouterProvider>
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

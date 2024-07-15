@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Button, Alert, Modal } from "react-bootstrap";
-import { axiosWithHeader } from "../api/axios";
+import { axiosWithHeader } from "../../api/axios";
 import { useNavigate } from "react-router-dom";
-import BookAppointment from "./BookAppointment";
-import ChargePatient from "./ChargePatient";
+import BookAppointment from "../BookAppointment";
+import ChargePatient from "../ChargePatient";
 
 const PatientDetail = () => {
   const { patientId } = useParams();
@@ -101,7 +101,7 @@ const PatientDetail = () => {
           <Modal.Title>Charge patient</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <ChargePatient />
+          <ChargePatient patientId={patientId} />
         </Modal.Body>
       </Modal>
     </div>

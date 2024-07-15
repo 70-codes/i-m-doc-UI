@@ -8,6 +8,7 @@ const AddPatient = () => {
   const [patientData, setPatientData] = useState({
     name: "",
     phone_number: "",
+    date_of_birth: "",
     role: role,
   });
 
@@ -67,6 +68,16 @@ const AddPatient = () => {
           <Form.Control
             type="text"
             name="phone_number"
+            onChange={handleChange}
+            required
+          />
+        </Form.Group>
+
+        <Form.Group controlId="formDateOfBirth" className="mt-3">
+          <Form.Label>Date of Birth</Form.Label>
+          <Form.Control
+            type="date"
+            name="date_of_birth"
             onChange={handleChange}
             required
           />

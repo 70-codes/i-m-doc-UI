@@ -1,0 +1,40 @@
+.patients-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.patients-list-header {
+    display: flex;
+    background-color: lightgray;
+    padding: 1rem;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(46, 51, 53, 0.5);
+}
+
+.patient-row {
+    display: flex;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(173, 216, 230, 0.5);
+    /* light blue shadow */
+    padding: 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.patient-row:hover {
+    transform: translateY(-5px);
+    /* Slightly lift on hover */
+    box-shadow: 0 4px 8px rgba(173, 216, 235, 0.8);
+    border: none;
+    /* No border on hover */
+}
+
+.patients-list-header>div,
+.patient-row>div {
+    flex: 1;
+    padding: 0.5rem;
+    text-align: center;
+}

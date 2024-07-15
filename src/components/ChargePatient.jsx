@@ -9,25 +9,26 @@ import {
 } from "react-bootstrap";
 import { axiosWithHeader } from "../api/axios";
 
-const ChargePatient = () => {
-  const [phoneNumber, setPhoneNumber] = useState("");
+const ChargePatient = ({ patientId }) => {
   const [amount, setAmount] = useState("");
-  const [paybillAccountNumber, setPaybillAccountNumber] = useState("");
+  const [phone, setPhone] = useState("");
   const [responseMessage, setResponseMessage] = useState(null);
   const [responseStatus, setResponseStatus] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(amount, phone);
     try {
-      const response = await axiosWithHeader.post("/mpesa/submit/", {
-        phone_number: phoneNumber,
+      const response = await axiosWithHeader.post(`/stkpush/${patientId}/`, {
         amount: amount,
-        paybill_account_number: paybillAccountNumber,
+        phone: phone,
       });
-      setResponseMessage(response.data.status);
+      setResponseMessage(response.data.message);
       setResponseStatus("success");
     } catch (error) {
-      setResponseMessage("Error submitting payment request");
+      setResponseMessage(
+        error.response?.data?.error || "Error submitting payment request"
+      );
       setResponseStatus("danger");
     }
   };
@@ -38,15 +39,6 @@ const ChargePatient = () => {
         <Alert variant={responseStatus}>{responseMessage}</Alert>
       )}
       <Form onSubmit={handleSubmit}>
-        <FormGroup controlId="phoneNumber">
-          <FormLabel>Phone Number</FormLabel>
-          <FormControl
-            type="text"
-            value={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
-            required
-          />
-        </FormGroup>
         <FormGroup controlId="amount">
           <FormLabel>Amount</FormLabel>
           <FormControl
@@ -56,15 +48,16 @@ const ChargePatient = () => {
             required
           />
         </FormGroup>
-        <FormGroup controlId="paybillAccountNumber">
-          <FormLabel>Paybill Account Number</FormLabel>
+        <FormGroup controlId="phone">
+          <FormLabel>Phone Number</FormLabel>
           <FormControl
             type="text"
-            value={paybillAccountNumber}
-            onChange={(e) => setPaybillAccountNumber(e.target.value)}
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            required
           />
         </FormGroup>
-        <Button variant="outline-success" className="w-100 mt-3 " type="submit">
+        <Button variant="outline-success" className="w-100 mt-3" type="submit">
           Submit Payment Request
         </Button>
       </Form>

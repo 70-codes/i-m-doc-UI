@@ -1,0 +1,10 @@
+.prescriptions-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.prescription-item {
+    flex: 1 0 300px;
+    /* Adjust card width as needed */
+}

@@ -1,0 +1,61 @@
+.appointments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.appointments-list-header {
+    display: flex;
+    background-color: lightgray;
+    padding: 1rem;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(46, 51, 53, 0.5);
+}
+
+.appointment-row {
+    display: flex;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(173, 216, 230, 0.5);
+    /* light blue shadow */
+    padding: 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.appointment-row:hover {
+    transform: translateY(-5px);
+    /* Slightly lift on hover */
+    border: none;
+    box-shadow: 0 4px 8px rgba(173, 216, 235, 0.8);
+    /* No border on hover */
+}
+
+.status-confirmed {
+    background-color: lightgreen;
+    color: black;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.status-pending {
+    background-color: lightyellow;
+    color: black;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.status-canceled {
+    background-color: lightcoral;
+    color: black;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.appointments-list-header>div,
+.appointment-row>div {
+    flex: 1;
+    padding: 0.5rem;
+    text-align: center;
+}

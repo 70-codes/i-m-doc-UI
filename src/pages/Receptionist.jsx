@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import AddPatient from "../components/AddPatient";
-import PatientsList from "../components/PatientList";
+import PatientsList from "../components/PatientList/PatientList";
 
 const Receptionist = () => {
   const [showModalAdd, setShowModalAdd] = useState(false);

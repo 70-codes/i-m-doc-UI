@@ -71,7 +71,7 @@ const BookAppointment = ({ patientId }) => {
           >
             <option value="PENDING">Pending</option>
             <option value="CONFIRMED">Confirmed</option>
-            <option value="CANCELLED">Cancelled</option>
+            <option value="CANCELED">Canceled</option>
           </Form.Control>
         </Form.Group>
         <Button
